@@ -4,7 +4,9 @@ on:
   issues:
     types: [opened]
   pull_request_target:
-    types: [opened]
+    # sem 'reopened' um check vermelho antigo nunca se limpa: reabrir a PR nao
+    # dispara o workflow e o resultado velho fica travando o merge para sempre.
+    types: [opened, reopened]
 
 jobs:
   welcome:
